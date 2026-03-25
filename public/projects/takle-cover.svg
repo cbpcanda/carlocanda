@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="c" x1="0" y1="675" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#c)"/>
+  <text x="80" y="220" fill="#c7d2fe" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="700">takle.io</text>
+  <text x="80" y="290" fill="#a5b4fc" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22">No-code product delivery � Bubble</text>
+</svg>

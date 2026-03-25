@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="jta" x1="0" y1="675" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1c1917"/>
+      <stop offset="1" stop-color="#44403c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#jta)"/>
+  <text x="80" y="210" fill="#e7e5e4" font-family="ui-sans-serif,system-ui,sans-serif" font-size="40" font-weight="700">JTA Logistics</text>
+  <text x="80" y="270" fill="#a8a29e" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22">Operations � fleet � billing</text>
+  <text x="80" y="315" fill="#78716c" font-family="ui-sans-serif,system-ui,sans-serif" font-size="18">Snapshot placeholder</text>
+</svg>
