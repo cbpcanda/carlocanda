@@ -26,7 +26,7 @@ export const projects: Project[] = [
     period: "Personal project",
     role: "Founder · CTO",
     description:
-      "Teks started as SMS-based access to information and AI for people without reliable data or smartphones. We’ve pivoted to an AI trust layer: governance, verification, and safe delivery of AI over constrained channels so teams can reach underserved users without sacrificing transparency or control. Same mission of inclusion — now with trust and compliance built into the stack, not bolted on later.",
+      "Teks started as an SMS-based platform so people could retrieve information and interact with AI through text — built for users without reliable data or smartphones. Today we’re an AI trust layer: governance, verification, and safe delivery of AI over those same constrained channels, so inclusion and transparency stay in the same product, not an afterthought.",
     links: [
       { label: "Website", href: "https://sendteks.com/" },
       {

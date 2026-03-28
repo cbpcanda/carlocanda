@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { EventParticipationBadges } from "@/components/event-participation-badges";
 import { eventsSortedNewestFirst, featuredEvents } from "@/data/events";
@@ -20,8 +21,8 @@ export default function FeaturesPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
           A running list of events I&apos;ve been invited to and where I&apos;ve
-          actually shown up — panels, summits, community meetups, and similar.
-          It grows as new invites come in.
+          actually shown up — panels, summits, community meetups, and similar —
+          plus selected press. It grows as new invites come in.
         </p>
 
         {featuredEvents.length === 0 ? (
@@ -58,6 +59,17 @@ export default function FeaturesPage() {
                   <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
                     {event.host}
                   </p>
+                ) : null}
+                {event.image ? (
+                  <div className="relative mt-4 aspect-[1200/630] w-full max-w-xl overflow-hidden rounded-xl border border-zinc-200/80 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+                    <Image
+                      src={event.image}
+                      alt={event.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 36rem"
+                    />
+                  </div>
                 ) : null}
                 {event.notes ? (
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">

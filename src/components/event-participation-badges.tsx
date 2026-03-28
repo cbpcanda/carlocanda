@@ -20,13 +20,52 @@ function Pill({
   );
 }
 
+function SpeakerPill() {
+  return (
+    <span className="inline-flex rounded-full bg-indigo-500/15 px-2 py-0.5 text-xs font-medium text-indigo-900 ring-1 ring-inset ring-indigo-500/25 dark:text-indigo-200">
+      Speaker
+    </span>
+  );
+}
+
 export function EventParticipationBadges({
   event,
 }: {
-  event: Pick<FeaturedEvent, "invited" | "joined">;
+  event: Pick<FeaturedEvent, "kind" | "invited" | "joined" | "speaker">;
 }) {
+  if (event.kind === "press") {
+    return (
+      <span className="flex flex-wrap gap-1.5">
+        <span className="inline-flex rounded-full bg-violet-500/15 px-2 py-0.5 text-xs font-medium text-violet-800 ring-1 ring-inset ring-violet-500/25 dark:text-violet-200">
+          Press
+        </span>
+      </span>
+    );
+  }
+
+  if (event.kind === "highlight") {
+    return (
+      <span className="flex flex-wrap gap-1.5">
+        <span className="inline-flex rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-medium text-amber-900 ring-1 ring-inset ring-amber-500/25 dark:text-amber-200">
+          Highlight
+        </span>
+      </span>
+    );
+  }
+
+  if (event.kind === "feature") {
+    return (
+      <span className="flex flex-wrap gap-1.5">
+        <span className="inline-flex rounded-full bg-emerald-500/15 px-2 py-0.5 text-xs font-medium text-emerald-900 ring-1 ring-inset ring-emerald-500/25 dark:text-emerald-200">
+          Feature
+        </span>
+      </span>
+    );
+  }
+
   return (
     <span className="flex flex-wrap gap-1.5">
+      {event.speaker ? <SpeakerPill /> : null}
       {event.invited ? <Pill variant="invited">Invited</Pill> : null}
       {event.joined ? <Pill variant="joined">Joined</Pill> : null}
       {!event.invited && !event.joined ? (

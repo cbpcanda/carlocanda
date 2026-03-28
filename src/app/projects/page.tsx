@@ -13,8 +13,8 @@ export default function ProjectsPage() {
   const groups = groupProjectsByPhase(projects);
 
   return (
-    <main className="flex-1">
-      <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+    <main className="flex-1 bg-zinc-100/80 dark:bg-zinc-950">
+      <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20 lg:max-w-4xl">
         <h1 className="font-display text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl dark:text-zinc-50">
           Project repository
         </h1>
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
                     : "No projects in this section yet."}
                 </p>
               ) : (
-                <ul className="mt-10 grid gap-8 sm:grid-cols-2">
+                <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
                   {group.map((project) => (
                     <li key={project.slug}>
                       <ProjectCard project={project} />
