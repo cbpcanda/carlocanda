@@ -58,6 +58,37 @@ export const projects: Project[] = [
     snapshotsObjectFit: "contain",
   },
   {
+    slug: "parqpay",
+    title: "ParqPay",
+    tagline: "Pay for your spot from your phone",
+    status: "in-progress",
+    repositoryPhase: "upcoming",
+    period: "Ongoing",
+    role: "Product · engineering",
+    description:
+      "ParqPay (parqpay.com) — pay for parking on your phone: enter the code on the meter or sign, continue to PayMongo, and pay with card or e-wallet. Built with Next.js and ready to deploy on Vercel with secrets in environment variables.",
+    links: [],
+    coverImage: "/projects/parqpay-icon.svg",
+    snapshots: ["/projects/parqpay-icon.svg"],
+    snapshotsObjectFit: "contain",
+  },
+  {
+    slug: "wishtherewas",
+    title: "Wish There Was",
+    tagline:
+      "A repository of real problems — where people wish a solution already existed",
+    status: "in-progress",
+    repositoryPhase: "upcoming",
+    period: "Early",
+    role: "Product · concept",
+    description:
+      "wishtherewas.com — a place to collect problems real people face and wish a solution already existed: honest gaps, not polished pitch decks. Meant to surface demand and ideas worth building.",
+    links: [],
+    coverImage: "/projects/wishtherewas-icon.svg",
+    snapshots: ["/projects/wishtherewas-icon.svg"],
+    snapshotsObjectFit: "contain",
+  },
+  {
     slug: "takle",
     title: "takle.io",
     tagline: "Two-sided UGC marketplace — brands meet content creators",
