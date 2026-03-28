@@ -2,11 +2,9 @@ export const site = {
   name: "Carlo Canda",
   title: "Software · Electronics engineering",
   location: "Davao, Philippines",
-  /** Bold hook + supporting line under the title row */
+  /** Bold hook under the title row */
   hook: {
     lead: "I design and build for startups, companies, and my own products.",
-    detail:
-      "Operations tools, customer-facing apps, and side projects — with clear requirements and maintainable delivery.",
   },
   tagline:
     "Electronics engineer by training; I design and build software for startups and companies — and ship personal products on the side — and a dad.",

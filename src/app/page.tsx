@@ -57,9 +57,6 @@ export default function Home() {
             {site.hook.lead}
           </span>
         </p>
-        <p className="mt-2 text-center text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-          {site.hook.detail}
-        </p>
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link
