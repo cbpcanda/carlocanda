@@ -150,6 +150,30 @@ export default function Home() {
           </section>
         ) : null}
 
+        <section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
+          <h2 className="font-display text-center text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+            Contact
+          </h2>
+          <ul className="mt-4 space-y-3 text-center text-sm">
+            <li>
+              <a
+                href={`mailto:${site.contact.email}`}
+                className="font-medium text-teal-800 underline-offset-4 hover:underline dark:text-teal-400"
+              >
+                {site.contact.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`tel:${site.contact.phoneTel}`}
+                className="font-medium text-teal-800 underline-offset-4 hover:underline dark:text-teal-400"
+              >
+                {site.contact.phoneLabel}
+              </a>
+            </li>
+          </ul>
+        </section>
+
         <p className="mt-16 text-center text-xs text-zinc-400 dark:text-zinc-500">
           More on the{" "}
           <Link href="/projects" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300">

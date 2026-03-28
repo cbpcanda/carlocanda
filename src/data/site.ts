@@ -20,4 +20,11 @@ export const site = {
     },
     { label: "Teks", href: "https://sendteks.com/" },
   ],
+  contact: {
+    email: "cbpcanda@gmail.com",
+    /** `tel:` href (Philippines mobile, E.164) */
+    phoneTel: "+639086073184",
+    /** Human-readable */
+    phoneLabel: "0908 607 3184",
+  },
 } as const;
