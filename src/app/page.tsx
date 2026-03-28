@@ -185,6 +185,16 @@ export default function Home() {
                 {site.contact.phoneLabel}
               </a>
             </li>
+            <li>
+              <a
+                href={site.company.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-teal-800 underline-offset-4 hover:underline dark:text-teal-400"
+              >
+                {site.company.label}
+              </a>
+            </li>
           </ul>
         </section>
 
