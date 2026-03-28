@@ -12,13 +12,23 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
+/** Prefer body copy for link previews when it’s short enough; otherwise the tagline. */
+function projectMetaDescription(project: {
+  tagline: string;
+  description: string;
+}): string {
+  const d = project.description.trim();
+  if (d.length > 0 && d.length <= 220) return d;
+  return project.tagline;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project" };
   return {
     title: project.title,
-    description: project.tagline,
+    description: projectMetaDescription(project),
   };
 }
 

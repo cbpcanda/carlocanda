@@ -27,7 +27,7 @@ export const projects: Project[] = [
     period: "Personal project",
     role: "Founder · CTO",
     description:
-      "Teks is an AI Trust Layer. Previously, it was an SMS-based technology that allowed access to any AI model and provided easy information retrieval through simple text messaging.",
+      "Teks is an AI Trust Layer (previously an SMS-based technology that allows access to any AI model and provides easy information retrieval through simple text messaging).",
     links: [
       { label: "Website", href: "https://sendteks.com/" },
       {
