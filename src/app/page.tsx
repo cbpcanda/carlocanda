@@ -34,11 +34,15 @@ export default function Home() {
       <div className="mx-auto max-w-lg px-5 pb-20 pt-12 sm:px-6 sm:pt-16">
         {/* Profile */}
         <div className="flex justify-center">
-          <div
-            className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-zinc-700 to-zinc-900 text-2xl font-bold tracking-tight text-white shadow-lg ring-4 ring-white dark:from-zinc-600 dark:to-zinc-800 dark:ring-zinc-950"
-            aria-hidden
-          >
-            CC
+          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full shadow-lg ring-4 ring-white dark:ring-zinc-950">
+            <Image
+              src="/carlo-canda.png"
+              alt={site.name}
+              width={96}
+              height={96}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
         </div>
 
