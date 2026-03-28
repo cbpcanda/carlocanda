@@ -20,14 +20,13 @@ export const projects: Project[] = [
   {
     slug: "teks",
     title: "Teks",
-    tagline:
-      "An AI Trust Layer — previously SMS-based access to any AI model and simple text-messaging retrieval",
+    tagline: "AI Trust Layer — evolved from SMS access to any AI model",
     status: "live",
     repositoryPhase: "working",
     period: "Personal project",
     role: "Founder · CTO",
     description:
-      "Teks is an AI Trust Layer (previously an SMS-based technology that allows access to any AI model and provides easy information retrieval through simple text messaging).",
+      "Teks is an AI Trust Layer, evolved from SMS-based tech that let anyone reach any AI model and get answers by text.",
     links: [
       { label: "Website", href: "https://sendteks.com/" },
       {
