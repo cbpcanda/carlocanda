@@ -66,7 +66,7 @@ export const projects: Project[] = [
     period: "Ongoing",
     role: "Product · engineering",
     description:
-      "ParqPay (parqpay.com) — pay for parking on your phone: enter the code on the meter or sign, continue to PayMongo, and pay with card or e-wallet. Built with Next.js and ready to deploy on Vercel with secrets in environment variables.",
+      "ParqPay (parqpay.com) — pay for parking on your phone: enter the code on the meter or sign, continue to PayMongo, and pay with card or e-wallet.",
     links: [],
     coverImage: "/projects/parqpay-icon.svg",
     snapshots: ["/projects/parqpay-icon.svg"],
