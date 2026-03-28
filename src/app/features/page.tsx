@@ -25,25 +25,9 @@ export default function FeaturesPage() {
         </p>
 
         {featuredEvents.length === 0 ? (
-          <div className="mt-14 rounded-2xl border border-dashed border-zinc-300 bg-zinc-50/80 p-8 dark:border-zinc-700 dark:bg-zinc-900/40">
+          <div className="mt-14 rounded-2xl border border-zinc-200/80 bg-zinc-50/80 p-8 dark:border-zinc-800 dark:bg-zinc-900/40">
             <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-              No entries yet. Add objects to{" "}
-              <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-                src/data/events.ts
-              </code>{" "}
-              (array{" "}
-              <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-                featuredEvents
-              </code>
-              ). Use{" "}
-              <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-                invited
-              </code>{" "}
-              and{" "}
-              <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-                joined
-              </code>{" "}
-              to reflect each row.
+              No public appearances listed here yet.
             </p>
             <Link
               href="/"

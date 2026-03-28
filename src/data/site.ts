@@ -2,6 +2,15 @@ export const site = {
   name: "Carlo Canda",
   title: "Software · Electronics engineering",
   location: "Davao, Philippines",
+  /** Italic one-liner under the location (Indie Page–style hero) */
+  quote:
+    "Electronics engineer by training — I ship software that has to work in the real world.",
+  /** Bold hook + supporting line under the quote */
+  hook: {
+    lead: "I design and build for startups, companies, and my own products.",
+    detail:
+      "Operations tools, customer-facing apps, and side projects — with clear requirements and maintainable delivery.",
+  },
   tagline:
     "Electronics engineer by training; I design and build software for startups and companies — and ship personal products on the side — and a dad.",
   bio: [

@@ -19,29 +19,8 @@ export default function ProjectsPage() {
           Project repository
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-          Everything I&apos;m actively building, planning to take on next, and
-          have already shipped — each card links to detail, links, and snapshots.
-          Add or move items in{" "}
-          <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-            src/data/projects.ts
-          </code>{" "}
-          and set{" "}
-          <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-            repositoryPhase
-          </code>{" "}
-          to{" "}
-          <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-            working
-          </code>
-          ,{" "}
-          <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-            upcoming
-          </code>
-          , or{" "}
-          <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-            worked
-          </code>
-          .
+          Everything I&apos;m actively building, planning next, and have already
+          shipped — open a card for the full story, links, and snapshots.
         </p>
 
         <div className="mt-16 space-y-20">
@@ -62,8 +41,8 @@ export default function ProjectsPage() {
               {group.length === 0 ? (
                 <p className="mt-8 text-sm text-zinc-600 dark:text-zinc-400">
                   {phase === "upcoming"
-                    ? "Nothing queued here yet — add a project in src/data/projects.ts and set repositoryPhase to upcoming when you’re ready to share what’s next."
-                    : "No projects in this bucket yet."}
+                    ? "Nothing queued here yet — check back for what’s next."
+                    : "No projects in this section yet."}
                 </p>
               ) : (
                 <ul className="mt-10 grid gap-8 sm:grid-cols-2">

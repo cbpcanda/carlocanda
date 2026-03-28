@@ -28,4 +28,6 @@ export type Project = {
   coverImage: string;
   /** Additional screenshots or media */
   snapshots: string[];
+  /** Gallery fit: `contain` suits square app icons; default `cover` for screenshots. */
+  snapshotsObjectFit?: "cover" | "contain";
 };

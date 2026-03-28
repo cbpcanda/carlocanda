@@ -1,159 +1,170 @@
+import Image from "next/image";
 import Link from "next/link";
-import { EventParticipationBadges } from "@/components/event-participation-badges";
-import { ProjectCard } from "@/components/project-card";
-import { eventsSortedNewestFirst, featuredEvents } from "@/data/events";
+import { StatusBadge } from "@/components/status-badge";
+import { eventsSortedNewestFirst } from "@/data/events";
 import { site } from "@/data/site";
 import { projects } from "@/data/projects";
+import type { Project } from "@/types/project";
 
-const featured = projects.filter(
-  (p) => p.slug === "teks" || p.slug === "bidbird",
+function projectHref(p: Project): string {
+  const web = p.links.find((l) => l.label === "Website");
+  if (web) return web.href;
+  return `/projects/${p.slug}`;
+}
+
+function isExternal(p: Project): boolean {
+  return p.links.some((l) => l.label === "Website");
+}
+
+const phaseRank: Record<Project["repositoryPhase"], number> = {
+  working: 0,
+  upcoming: 1,
+  worked: 2,
+};
+
+const sortedProjects = [...projects].sort(
+  (a, b) => phaseRank[a.repositoryPhase] - phaseRank[b.repositoryPhase],
 );
 
 export default function Home() {
-  const previewEvents = eventsSortedNewestFirst().slice(0, 4);
+  const previewEvents = eventsSortedNewestFirst().slice(0, 3);
 
   return (
     <main className="flex-1">
-      <section className="border-b border-zinc-200/80 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-        <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
-          <p className="text-sm font-medium uppercase tracking-widest text-teal-700 dark:text-teal-400">
-            {site.title}
-          </p>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-zinc-950 sm:text-5xl dark:text-zinc-50">
-            {site.name}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            {site.tagline}
-          </p>
-          <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-500">
-            {site.location}
-          </p>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Living project repository: what I&apos;m building, what&apos;s next,
-            and what I&apos;ve already shipped — with snapshots and links on each
-            entry.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/projects"
-              className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-200"
-            >
-              Browse repository
-            </Link>
-            <Link
-              href="/features"
-              className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-medium text-zinc-800 transition-colors hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
-            >
-              Features &amp; events
-            </Link>
-            <a
-              href={site.social[0].href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-medium text-zinc-800 transition-colors hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
-            >
-              LinkedIn
-            </a>
+      <div className="mx-auto max-w-lg px-5 pb-20 pt-12 sm:px-6 sm:pt-16">
+        {/* Profile */}
+        <div className="flex justify-center">
+          <div
+            className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-zinc-700 to-zinc-900 text-2xl font-bold tracking-tight text-white shadow-lg ring-4 ring-white dark:from-zinc-600 dark:to-zinc-800 dark:ring-zinc-950"
+            aria-hidden
+          >
+            CC
           </div>
         </div>
-      </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-        <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-          About
-        </h2>
-        <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
-          {site.bio.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+        <h1 className="font-display mt-8 text-center text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl dark:text-zinc-50">
+          {site.name}
+        </h1>
+        <p className="mt-1 text-center text-lg text-zinc-500 dark:text-zinc-400">
+          {site.location}
+        </p>
+        <p className="font-display mt-2 text-center text-sm font-medium text-zinc-600 dark:text-zinc-300">
+          {site.title}
+        </p>
+
+        <p className="mt-8 text-center text-base italic leading-relaxed text-zinc-600 dark:text-zinc-400">
+          {site.quote}
+        </p>
+
+        <p className="mt-6 text-center text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+          <span className="font-semibold text-zinc-950 dark:text-zinc-50">
+            {site.hook.lead}
+          </span>
+        </p>
+        <p className="mt-2 text-center text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+          {site.hook.detail}
+        </p>
+
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Link
+            href="/projects"
+            className="inline-flex w-full max-w-xs items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800 sm:w-auto dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-200"
+          >
+            Browse all projects
+          </Link>
+          <a
+            href={site.social[0].href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full max-w-xs items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50 sm:w-auto dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+          >
+            LinkedIn
+          </a>
         </div>
-      </section>
 
-      <section className="border-t border-zinc-200/80 bg-white py-16 dark:border-zinc-800 dark:bg-zinc-950/60 sm:py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-                Features
-              </h2>
-              <p className="mt-2 max-w-lg text-sm text-zinc-600 dark:text-zinc-400">
-                Events I&apos;ve been invited to and where I&apos;ve joined —
-                summits, talks, and community appearances.
-              </p>
-            </div>
-            <Link
-              href="/features"
-              className="text-sm font-medium text-teal-800 underline-offset-4 hover:underline dark:text-teal-400"
-            >
-              Full list →
+        <ul className="mt-4 flex justify-center gap-5 text-sm text-zinc-500 dark:text-zinc-400">
+          <li>
+            <Link href="/features" className="hover:text-zinc-950 dark:hover:text-zinc-50">
+              Features
             </Link>
-          </div>
+          </li>
+          <li>
+            <Link href="/blog" className="hover:text-zinc-950 dark:hover:text-zinc-50">
+              Writing
+            </Link>
+          </li>
+        </ul>
 
-          {featuredEvents.length === 0 ? (
-            <p className="mt-10 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Add your events in{" "}
-              <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-                src/data/events.ts
-              </code>{" "}
-              to populate this section and the Features page.
-            </p>
-          ) : (
-            <ul className="mt-10 divide-y divide-zinc-200 dark:divide-zinc-800">
-              {previewEvents.map((event) => (
-                <li
-                  key={event.slug}
-                  className="flex flex-col gap-3 py-6 first:pt-0 sm:flex-row sm:items-start sm:justify-between sm:gap-8"
-                >
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-                      {event.dateLabel}
-                      {event.location ? ` · ${event.location}` : ""}
+        {/* Product list — Indie Page style */}
+        <ul className="mt-14 space-y-0 divide-y divide-zinc-200 dark:divide-zinc-800">
+          {sortedProjects.map((p) => (
+            <li key={p.slug} className="py-5 first:pt-0">
+              <Link
+                href={projectHref(p)}
+                target={isExternal(p) ? "_blank" : undefined}
+                rel={isExternal(p) ? "noopener noreferrer" : undefined}
+                className="group flex gap-4"
+              >
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-200/80 dark:bg-zinc-800 dark:ring-zinc-700">
+                  <Image
+                    src={p.coverImage}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-display font-semibold text-zinc-950 group-hover:text-teal-700 dark:text-zinc-50 dark:group-hover:text-teal-400">
+                      {p.title}
                     </p>
-                    <p className="font-display mt-1 text-lg font-semibold text-zinc-950 dark:text-zinc-50">
-                      {event.title}
-                    </p>
-                    {event.host ? (
-                      <p className="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
-                        {event.host}
-                      </p>
-                    ) : null}
+                    <StatusBadge status={p.status} />
                   </div>
-                  <EventParticipationBadges event={event} />
+                  <p className="mt-0.5 text-sm leading-snug text-zinc-600 dark:text-zinc-400">
+                    {p.tagline}
+                  </p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {previewEvents.length > 0 ? (
+          <section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
+            <div className="flex items-baseline justify-between gap-4">
+              <h2 className="font-display text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                Appearances
+              </h2>
+              <Link
+                href="/features"
+                className="text-xs font-medium text-teal-700 hover:underline dark:text-teal-400"
+              >
+                All →
+              </Link>
+            </div>
+            <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+              {previewEvents.map((e) => (
+                <li key={e.slug}>
+                  <span className="text-zinc-400 dark:text-zinc-500">
+                    {e.dateLabel}
+                    {e.location ? ` · ${e.location}` : ""} —{" "}
+                  </span>
+                  {e.title}
                 </li>
               ))}
             </ul>
-          )}
-        </div>
-      </section>
+          </section>
+        ) : null}
 
-      <section className="border-t border-zinc-200/80 bg-zinc-50/80 py-16 dark:border-zinc-800 dark:bg-zinc-950/40 sm:py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-                From the repository
-              </h2>
-              <p className="mt-2 max-w-lg text-sm text-zinc-600 dark:text-zinc-400">
-                Status, phase (working / upcoming / worked), links, and snapshots
-                on each project page.
-              </p>
-            </div>
-            <Link
-              href="/projects"
-              className="text-sm font-medium text-teal-800 underline-offset-4 hover:underline dark:text-teal-400"
-            >
-              All projects →
-            </Link>
-          </div>
-          <ul className="mt-12 grid gap-8 sm:grid-cols-2">
-            {featured.map((project) => (
-              <li key={project.slug}>
-                <ProjectCard project={project} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+        <p className="mt-16 text-center text-xs text-zinc-400 dark:text-zinc-500">
+          More on the{" "}
+          <Link href="/projects" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300">
+            projects
+          </Link>{" "}
+          page — status, snapshots, and links per build.
+        </p>
+      </div>
     </main>
   );
 }

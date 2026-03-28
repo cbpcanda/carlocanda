@@ -80,30 +80,31 @@ export default async function ProjectPage({ params }: Props) {
             Snapshots
           </h2>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-            Replace these placeholders under{" "}
-            <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-xs dark:bg-zinc-800">
-              public/projects/
-            </code>{" "}
-            with PNG or WebP exports for sharper thumbnails.
+            Product imagery and captures from this build.
           </p>
           <ul className="mt-8 space-y-8">
-            {project.snapshots.map((src, i) => (
-              <li
-                key={src}
-                className="overflow-hidden rounded-2xl border border-zinc-200/90 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <div className="relative aspect-video w-full">
-                  <Image
-                    src={src}
-                    alt={`${project.title} snapshot ${i + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 896px"
-                    priority={i === 0}
-                  />
-                </div>
-              </li>
-            ))}
+            {project.snapshots.map((src, i) => {
+              const fit = project.snapshotsObjectFit ?? "cover";
+              return (
+                <li
+                  key={src}
+                  className="overflow-hidden rounded-2xl border border-zinc-200/90 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900"
+                >
+                  <div
+                    className={`relative w-full ${fit === "contain" ? "aspect-square max-w-sm mx-auto bg-white dark:bg-zinc-950" : "aspect-video"}`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`${project.title} snapshot ${i + 1}`}
+                      fill
+                      className={fit === "contain" ? "object-contain p-6" : "object-cover"}
+                      sizes="(max-width: 1024px) 100vw, 896px"
+                      priority={i === 0}
+                    />
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </section>
       </article>

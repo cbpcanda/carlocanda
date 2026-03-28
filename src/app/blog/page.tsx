@@ -14,27 +14,20 @@ export default function BlogPage() {
           Writing
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-          Long term this section will hold posts and longer-form notes. For now
-          it&apos;s a stub so navigation and URLs stay stable when you add MDX or
-          a CMS.
-        </p>
-        <p className="mt-8 text-sm text-zinc-500 dark:text-zinc-500">
-          Suggested next steps:{" "}
+          Posts and longer notes will live here. For now, explore{" "}
           <Link
             href="/projects"
             className="font-medium text-teal-800 underline-offset-4 hover:underline dark:text-teal-400"
           >
-            browse projects
+            projects
           </Link>{" "}
-          or wire{" "}
-          <a
-            href="https://nextjs.org/docs/app/building-your-application/configuring/mdx"
-            target="_blank"
-            rel="noopener noreferrer"
+          or{" "}
+          <Link
+            href="/features"
             className="font-medium text-teal-800 underline-offset-4 hover:underline dark:text-teal-400"
           >
-            MDX
-          </a>
+            features
+          </Link>
           .
         </p>
       </div>
