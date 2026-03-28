@@ -52,11 +52,7 @@ export default function Home() {
           {site.title}
         </p>
 
-        <p className="mt-8 text-center text-base italic leading-relaxed text-zinc-600 dark:text-zinc-400">
-          {site.quote}
-        </p>
-
-        <p className="mt-6 text-center text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+        <p className="mt-8 text-center text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
           <span className="font-semibold text-zinc-950 dark:text-zinc-50">
             {site.hook.lead}
           </span>
