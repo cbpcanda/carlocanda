@@ -18,6 +18,14 @@ export function SiteFooter() {
             </Link>
           ))}
           <a
+            href={site.company.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-600 underline-offset-4 transition-colors hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-zinc-50"
+          >
+            {site.company.label}
+          </a>
+          <a
             href={`mailto:${site.contact.email}`}
             className="text-zinc-600 underline-offset-4 transition-colors hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-zinc-50"
           >

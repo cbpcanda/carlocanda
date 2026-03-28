@@ -75,7 +75,7 @@ export default function Home() {
           </a>
         </div>
 
-        <ul className="mt-4 flex justify-center gap-5 text-sm text-zinc-500 dark:text-zinc-400">
+        <ul className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-zinc-500 dark:text-zinc-400">
           <li>
             <Link href="/features" className="hover:text-zinc-950 dark:hover:text-zinc-50">
               Features
@@ -85,6 +85,16 @@ export default function Home() {
             <Link href="/blog" className="hover:text-zinc-950 dark:hover:text-zinc-50">
               Writing
             </Link>
+          </li>
+          <li>
+            <a
+              href={site.company.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-zinc-950 dark:hover:text-zinc-50"
+            >
+              {site.company.label}
+            </a>
           </li>
         </ul>
 

@@ -13,6 +13,11 @@ export const site = {
     "This site is my project repository — work I’m doing now, what I plan to take on next, and what I’ve already shipped — plus a Features section for events I’ve been invited to and joined.",
     "Alongside client work, I run personal projects where I can explore ideas end to end — product, stack, and iteration — without losing sight of real users and constraints.",
   ],
+  /** Engineering / consultancy company */
+  company: {
+    label: "Alora Tech",
+    href: "https://www.aloratech.it.com/",
+  },
   social: [
     {
       label: "LinkedIn",
