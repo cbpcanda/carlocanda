@@ -66,7 +66,7 @@ export const projects: Project[] = [
     period: "Ongoing",
     role: "Product · engineering",
     description:
-      "ParqPay (parqpay.com) — pay for parking on your phone: enter the code on the meter or sign, continue to PayMongo, and pay with card or e-wallet.",
+      "ParqPay (parqpay.com) — pay for parking on your phone: enter the code on the meter or sign, and pay with card or e-wallet.",
     links: [],
     coverImage: "/projects/parqpay-icon.svg",
     snapshots: ["/projects/parqpay-icon.svg"],
