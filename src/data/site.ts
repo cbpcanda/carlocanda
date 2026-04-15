@@ -4,7 +4,7 @@ export const site = {
   location: "Davao, Philippines",
   /** Bold hook under the title row */
   hook: {
-    lead: "I design and build for startups, companies, and my own products.",
+    lead: "I help businesses turn ideas into software solutions that solve real-world problems without hiring an entire tech team.",
   },
   tagline:
     "Electronics engineer by training; I design and build software for startups and companies — and ship personal products on the side — and a dad.",
